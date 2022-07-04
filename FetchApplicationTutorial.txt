@@ -1,0 +1,32 @@
+(These instructions are for the MacBook command line)
+
+Make sure maven is installed on your device.
+
+This application runs on Java 1.8 using a Spring framework.
+To use a different version of java, you must go into the pom.xml file and change the <java.version>HERE</java.version> attribute to make HERE = your java version.
+
+Navigate to the FetchApplication directory in your command line.
+
+Enter:      ./mvnw spring-boot:run
+
+The web service should be booted at:    http://localhost:8080/
+
+
+You can run multiple commands from the HTTP request, such as...
+
+1.) To add a transaction with attributes (PAYER, POINTS, TIMESTAMP), type:
+
+	http://localhost:8080/transaction?payer=PAYER&points=POINTS&timestamp=TIMESTAMP
+ 
+	* make sure TIMESTAMP is of the format 'yyyy-MM-ddTHH:mm:ssZ' *
+
+2.) To spend points with attribute (POINTS), type:
+
+	http://localhost:8080/spend?points=POINTS
+
+	* as long as you have enough points to spend and POINTS is positive, 
+	a list of payers and the points they spent will be printed *
+
+3.) To see all the payers and their total points, type:
+
+	http://localhost:8080/spend?points=POINTS
